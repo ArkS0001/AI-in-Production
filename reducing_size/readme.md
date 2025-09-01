@@ -1,3 +1,5 @@
+![1756390452407](https://github.com/user-attachments/assets/066ee5aa-5af0-4d18-ae1e-be0ca803000e)
+
 I reduced a Docker image size by 99.70%.
 
 From a bloated 846 MB down to a lean 2.5 MB. 
