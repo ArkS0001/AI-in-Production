@@ -1,4 +1,4 @@
-Ah! You’re asking about **how to deploy a frontend app that calls an API without exposing the API key or secrets to the client**. This is super important in production because anything in the frontend bundle is visible to users. Here’s the clean, production-friendly way to do it:
+ **how to deploy a frontend app that calls an API without exposing the API key or secrets to the client**. This is super important in production because anything in the frontend bundle is visible to users. Here’s the clean, production-friendly way to do it:
 
 ---
 
@@ -74,6 +74,49 @@ const data = await res.json();
 
 ---
 
-If you want, I can draw a **diagram showing the deployment flow with API secured**, similar to your CalmCompanion setup — it makes it super clear for production.
+Perfect! Here’s a clean, **classic flowchart-style diagram** showing how to deploy your app with API integration **without exposing the API key**:
 
-Do you want me to do that?
+```
++-------------------+
+|   Frontend App    |
+|  (React/Vue)      |
+|  - Sends requests |
+|    to /api/groq   |
++--------+----------+
+         |
+         v
++-------------------+
+| Serverless / API  |
+| Function (Vercel)|
+|  - Reads API key  |
+|    from ENV       |
+|  - Forwards req   |
+|    to external API|
++--------+----------+
+         |
+         v
++-------------------+
+| External API      |
+|  - Processes req  |
+|  - Returns data   |
++--------+----------+
+         |
+         v
++-------------------+
+| Frontend Receives |
+|  Response Data    |
+|  (No API Key sent)|
++-------------------+
+```
+
+### **Explanation**
+
+1. **Frontend never sees the API key** — it only talks to your serverless function.
+2. **Serverless function reads the API key from environment variables** (Vercel, Netlify, etc.).
+3. **Serverless function forwards the request to the API**, retrieves the response, and returns it to the frontend.
+4. You can also **add rate limiting, authentication, or request validation** in your serverless function for extra security.
+
+---
+
+
+
