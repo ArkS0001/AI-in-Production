@@ -1,3 +1,5 @@
+<img width="1024" height="1024" alt="8592a0a6-42b5-4a35-8ea6-3c99ad577c2a" src="https://github.com/user-attachments/assets/eebd862b-fbd3-4f6e-bcf2-739f75e5b6d6" />
+
  **how to deploy a frontend app that calls an API without exposing the API key or secrets to the client**. This is super important in production because anything in the frontend bundle is visible to users. Here’s the clean, production-friendly way to do it:
 
 ---
